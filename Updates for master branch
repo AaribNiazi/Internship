@@ -1,0 +1,89 @@
+#include<iostream>
+6
+#include<fstream>
+7
+#include<cctype>
+8
+#include<iomanip>
+9
+using namespace std;
+10
+​
+11
+//***************************************************************
+12
+//                   CLASS USED IN PROJECT
+13
+//****************************************************************
+14
+​
+15
+​
+16
+class account
+17
+{
+18
+        int acno;
+19
+        char name[50];
+20
+        int deposit;
+21
+        char type;
+22
+public:
+23
+        void create_account();  //function to get data from user
+24
+        void show_account() const;      //function to show data on screen
+25
+        void modify();  //function to add new data
+26
+        void dep(int);  //function to accept amount and add to balance amount
+27
+        void draw(int); //function to accept amount and subtract from balance amount
+28
+        void report() const;    //function to show data in tabular format
+29
+        int retacno() const;    //function to return account number
+30
+        int retdeposit() const; //function to return balance amount
+31
+        char rettype() const;   //function to return type of account
+32
+};         //class ends here
+33
+​
+34
+void account::create_account()
+35
+{
+36
+        cout<<"\nEnter The account No. :";
+37
+        cin>>acno;
+38
+        cout<<"\n\nEnter The Name of The account Holder : ";
+39
+        cin.ignore();
+40
+        cin.getline(name,50);
+41
+        cout<<"\nEnter Type of The account (C/S) : ";
+42
+        cin>>type;
+43
+        type=toupper(type);
+44
+        cout<<"\nEnter The Initial amount(>=500 for Saving and >=1000 for current ) : ";
+45
+        cin>>deposit;
+46
+        cout<<"\n\n\nAccount Created..";
+47
+}
+48
+​
+49
+void account::show_account() const
